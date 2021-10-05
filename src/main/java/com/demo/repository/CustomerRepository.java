@@ -1,9 +1,9 @@
-package com.fedex.repository;
+package com.demo.repository;
 
 import java.util.HashMap;
 import java.util.Map;
-import com.fedex.entity.Customer;
-import com.fedex.exception.CustomerNotFoundException;
+import com.demo.entity.Customer;
+import com.demo.exception.CustomerNotFoundException;
 import org.springframework.stereotype.Component;
 
 @Component

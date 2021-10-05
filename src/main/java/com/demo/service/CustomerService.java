@@ -1,9 +1,9 @@
-package com.fedex.service;
+package com.demo.service;
 
-import com.fedex.entity.Customer;
+import com.demo.entity.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import com.fedex.repository.CustomerRepository;
+import com.demo.repository.CustomerRepository;
 
 @Component
 public class CustomerService {
