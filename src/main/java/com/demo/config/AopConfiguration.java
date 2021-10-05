@@ -1,5 +1,6 @@
-package com.demo.aop.advice;
+package com.demo.config;
 
+import com.demo.aop.advice.CustomPerformanceMonitorInterceptor;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.aop.Advisor;
@@ -15,7 +16,8 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 public class AopConfiguration {
     
     @Pointcut(
-      "execution(public com.demo.entity.Customer com.demo.service.CustomerService.findById(..)) || execution(public com.demo.entity.Customer com.demo.repository.CustomerRepository.findById(..))"
+      "execution(public com.demo.entity.Customer com.demo.service.CustomerService.findById(..)) || "
+              + "execution(public com.demo.entity.Customer com.demo.repository.CustomerRepository.findById(..))"
     )
     public void customMonitor() { }
     
@@ -27,7 +29,7 @@ public class AopConfiguration {
     @Bean
     public Advisor myPerformanceMonitorAdvisor() {
         AspectJExpressionPointcut pointcut = new AspectJExpressionPointcut();
-        pointcut.setExpression("com.demo.aop.advice.AopConfiguration.customMonitor()");
+        pointcut.setExpression("com.demo.config.AopConfiguration.customMonitor()");
         return new DefaultPointcutAdvisor(pointcut, customPerformanceMonitorInterceptor());
     }
 

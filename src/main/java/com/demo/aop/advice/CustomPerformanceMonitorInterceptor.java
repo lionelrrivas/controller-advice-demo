@@ -24,8 +24,7 @@ public class CustomPerformanceMonitorInterceptor extends AbstractMonitoringInter
             return invocation.proceed();
         }
         finally {
-            Instant end = Instant.now();
-            long time = Duration.between(start, end).toMillis();
+            long time = Duration.between(start, Instant.now()).toMillis();
             log.info(name + " execution lasted " + time + " ms");
         }
     }
