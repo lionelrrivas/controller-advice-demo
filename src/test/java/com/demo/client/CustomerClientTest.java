@@ -45,10 +45,6 @@ public class CustomerClientTest {
 
         Customer actualCustomer = customerClient.findById(1);
 
-//        StepVerifier.create(employeeMono)
-//                .expectNextMatches(employee -> employee.getRole().equals(Role.LEAD_ENGINEER))
-//                .verifyComplete();
-
         RecordedRequest recordedRequest = mockWebServer.takeRequest();
         assertEquals("GET", recordedRequest.getMethod());
         assertEquals("/customers/1", recordedRequest.getPath());
