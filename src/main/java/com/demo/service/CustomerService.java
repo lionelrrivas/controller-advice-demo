@@ -1,21 +1,21 @@
 package com.demo.service;
 
+import com.demo.client.CustomerClient;
 import com.demo.entity.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import com.demo.repository.CustomerRepository;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class CustomerService {
     
-    private final CustomerRepository customerRepository;
+    private final CustomerClient customerClient;
 
     @Autowired
-    public CustomerService(CustomerRepository customerRepository) {
-        this.customerRepository = customerRepository;
+    public CustomerService(CustomerClient customerClient) {
+        this.customerClient = customerClient;
     }
     
     public Customer findById(Integer id) {
-        return this.customerRepository.findById(id);
+        return customerClient.findById(id);
     } 
 }
