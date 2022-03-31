@@ -33,7 +33,7 @@ public class CustomerClientTest {
     @BeforeEach
     void initialize() {
         String baseUrl = String.format("http://" + mockWebServer.getHostName() + ":%s", mockWebServer.getPort());
-        customerClient = new CustomerClient(WebClient.builder().baseUrl(baseUrl));
+        customerClient = new CustomerClient(WebClient.builder(), baseUrl);
     }
     
     @Test

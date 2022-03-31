@@ -11,9 +11,9 @@ public class CustomerClient {
     private final WebClient webClient;
 
     @Autowired
-    public CustomerClient(WebClient.Builder clientBuilder) {
-        clientBuilder.build();
-        this.webClient = clientBuilder.build();
+    public CustomerClient(WebClient.Builder clientBuilder, String baseUrl) {
+        
+        this.webClient = clientBuilder.clone().baseUrl(baseUrl).build();
     }
     
     public Customer findById(Integer customerId) {
